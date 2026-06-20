@@ -1,0 +1,60 @@
+
+
+<% layout("./layouts/boilerplate") %>
+
+<div class="container mt-4">
+
+  <div class="row justify-content-center">
+    
+    <div class="col-lg-8">
+
+      <div class="card listing-card shadow-lg border-0">
+
+        <!-- IMAGE -->
+        <img src="<%= listing.image.url %>" class="card-img-top listing-img">
+
+        <!-- BODY -->
+        <div class="card-body">
+
+          <h3 class="fw-bold"><%= listing.title %></h3>
+
+          <p class="text-muted">
+            <%= listing.description %>
+          </p>
+
+          <h5 class="price">
+            ₹ <%= listing.price.toLocaleString("en-IN") %> / night
+          </h5>
+
+          <p class="location">
+            📍 <%= listing.location %>, <%= listing.country %>
+          </p>
+
+          <!-- BUTTONS -->
+          <div class="d-flex gap-3 mt-4">
+
+            <a href="/listings/<%= listing._id %>/edit" 
+               class="btn btn-dark px-4">
+               ✏️ Edit
+            </a>
+
+            <form method="POST" 
+                  action="/listings/<%= listing._id %>?_method=DELETE">
+              <button class="btn btn-danger px-4">
+                🗑 Delete
+              </button>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
